@@ -1,0 +1,63 @@
+{
+  "note": 17,
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "per-second view direction (pitch, roll, yaw rate)",
+      "status": "Verified (automated)",
+      "evidence": [
+        "analysis/c1_per_second.csv.gz",
+        "analysis/c1_view_direction.py",
+        "assets/tables/c4_by_session.csv"
+      ]
+    },
+    {
+      "id": "C2",
+      "claim": "IMU horizon agrees with vanishing points; rig did not slide (desk posture)",
+      "status": "Checked by eye on 3 frames; 6 desk frames in 4 sessions",
+      "evidence": [
+        "assets/figures/fn17_horizon_check.png",
+        "analysis/c3_hand_labels.csv (desk_phone)"
+      ]
+    },
+    {
+      "id": "C3",
+      "claim": "own-body share by pitch",
+      "status": "Verified (automated colour mask, spot-checked visually)",
+      "evidence": [
+        "analysis/c2_self_occlusion.csv",
+        "analysis/c2_self_occlusion.py",
+        "assets/tables/c4_by_pitch_band.csv"
+      ]
+    },
+    {
+      "id": "C4",
+      "claim": "hand visibility and vertical position",
+      "status": "Preliminary (AI visual labels, not human re-checked)",
+      "evidence": [
+        "analysis/c3_hand_labels.csv"
+      ]
+    },
+    {
+      "id": "C5",
+      "claim": "per-frame view file ships with every delivery from the next one on",
+      "status": "Implemented in QA tool (c1_view_angles.py) and tested on this recording",
+      "evidence": [
+        "analysis/qa/odl_delivery_qa.py",
+        "analysis/qa/c1_view_angles.py"
+      ]
+    }
+  ],
+  "inputs": {
+    "environment": {
+      "python": "3.13.17",
+      "opencv": "5.0.0 (opencv-contrib-python)",
+      "numpy": "2.5.3",
+      "pandas": "3.0.5",
+      "matplotlib": "3.11.2",
+      "os": "Linux x86_64 (CPU only)",
+      "analysis_date": "2026-11-01"
+    },
+    "recording": "2026-11-01 09:48–12:37, six sessions, device CCC4B2D9B5EA, fw 202609241525"
+  }
+}
